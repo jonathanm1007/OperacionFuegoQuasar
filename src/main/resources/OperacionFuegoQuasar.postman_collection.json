@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "f5d4ae99-e6aa-484a-ba6b-cec109906a52",
+		"name": "OperacionFuegoQuasar",
+		"description": "Colección que contiene los request necesarios para consumir los servicios del API que soluciona el problema propuesto por Mercado Libre, referente a Operación Fuego Quasar. ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "topsecret",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"satellites\": [\r\n{ \"name\": \"Kenobi\",\r\n\"distance\": 5,\r\n\"message\": [\"este\", \"\", \"\", \"mensaje\", \"\"]\r\n},\r\n{ \"name\": \"Skywalker\",\r\n\"distance\": 5,\r\n\"message\": [\"\", \"es\", \"\", \"\", \"secreto\"]\r\n},\r\n{ \"name\": \"Sato\",\r\n\"distance\": 13,\r\n\"message\": [\"este\", \"\", \"un\", \"\", \"\"]\r\n}\r\n]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/topsecret/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"topsecret",
+						""
+					]
+				},
+				"description": "Request necesario para poder consumir el servicio que calcula la posición y descifra el mensaje secreto, según la información de entrada para cada satélite. \r\n\r\nRecibe el listado de información de cada satélite como lo son la distancia al emisor del mensaje y el arreglo con el mensaje secreto recibido por cada uno."
+			},
+			"response": []
+		},
+		{
+			"name": "topsecret_split",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/topsecret_split/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"topsecret_split",
+						""
+					]
+				},
+				"description": "Request que permite obtener la posición y descifrar el mensaje secreto enviado por el emisor, cuando se utiliza el request /topsecret_split/{satellite_name}, el cual ingresa a información de cada satélite de manera individual. \r\n\r\nEste servicio responderá con éxito únicamente cuando se haya ingresado ya toda la información de los tres satélites, lo cual es necesario para poder obtener la respuesta al problema."
+			},
+			"response": []
+		},
+		{
+			"name": "topsecret_split_id",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"distance\": 200.0,\r\n\"message\": [\"este\", \"\", \"\", \"mensaje\", \"\"]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/topsecret_split/Skywalker",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"topsecret_split",
+						"Skywalker"
+					]
+				},
+				"description": "Request que permite registrar la información enviada por cada uno de los satélites de manera individual. Recibe el nombre del satélite a ravés del parámetro de ruta {satelliteName}. Con esto se determina cual de los tres satélites es el que encía la señal. Adicionalmente se envía en el cuerpo del request la información del satélite."
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,25 @@
+{
+   "satelites":[
+      {
+         "nombre":"Kenobi",
+         "posicion":{
+            "x":5,
+            "y":4
+         }
+      },
+      {
+         "nombre":"Skywalker",
+         "posicion":{
+            "x":4,
+            "y":-3
+         }
+      },
+      {
+         "nombre":"Sato",
+         "posicion":{
+            "x":-4,
+            "y":13
+         }
+      }
+   ]
+}
