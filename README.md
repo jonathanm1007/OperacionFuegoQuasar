@@ -5,11 +5,11 @@ El proyecto Operación Fuego Quasar es una aplicación que resuelve el problema 
 
 Los tres satélites se encuentran ubicados inicialmente en las siguientes posiciones del plano cartesiano:
 
-● Kenobi: [-500, -200] 
-● Skywalker: [100, -100]
-● Sato: [500, 100]
+* Kenobi: [-500, -200] 
+* Skywalker: [100, -100]
+* Sato: [500, 100]
 
-Sin embargo, el algoritmo implementado para dar solución a este problema, permite editar dichas posiciones en caso de que se replanteara la posición de alguno(s) de esto(s) satélites. Dicha posición se define a través de un archivo json ubicado dentro del proyecto en la ruta /OperacionFuegoQuasar/src/main/resources/dataSatelites.json.
+Sin embargo, el algoritmo implementado para dar solución a este problema, permite editar dichas posiciones en caso de que se replanteara la posición de alguno(s) de esto(s) satélites. Dicha posición se define a través de un archivo json ubicado en una ruta del sistema que emula una fuente de datos para Operación Fuego Quasar y puede ser editado cuando se requiera.
 
 Para obtener más información acerca del problema planteado por favor ver el documento:
 
@@ -19,7 +19,7 @@ Para solventar este problema se implementaron dos algoritmos, uno para hallar el
 
 Este proyecto fue construido en lenguaje Java - versión 1.8, haciendo uso del framework Spring Boot 2.4. Se utilizó Maven como herramienta de gestión y construcción del proyecto, así como para la definición de las dependencias del mismo.
 
-Cada una de las clases y métodos que hacen parte del proyecto están documentadas a través de Javadoc para lograr un entendimiento más detallado del funcionamiento interno de la aplicación. 
+Cada una de las clases y métodos que hacen parte del proyecto están documentadas a través de Javadoc para lograr un entendimiento más detallado del funcionamiento interno de la aplicación. Dicha documentación puede ser consultada diréctamente en el código Java o a través del código HTML de dichos fuentes, dicho código puede ser descargado de la ruta https://drive.google.com/drive/folders/1inadR55rGNafpMqk769YXqBer_T9fd5v?usp=sharing. Lo único que se debe hacer es descargarlo al pc, y abrir el archivo index.html.
 
 ## Descripción del Algoritmo de Posicionamiento
 
@@ -59,13 +59,11 @@ Básicamente el algoritmo tiene los siguientes pasos:
 
 ## Endpoints de la Aplicación
 
-La aplicación cuenta con 3 endpoints que proveen las distintas funcionalidades que resuelven el problema, dichos servicios se puede consumir una vez iniciada la aplicación en el puerto por defecto por donde se escuchan las aplicaciones de Springboot a ravés de la URI http://localhost:8080:
+La aplicación cuenta con 3 endpoints que proveen las distintas funcionalidades que resuelven el problema, dichos servicios se puede consumir una vez iniciada la aplicación en el puerto por defecto por donde se escuchan las aplicaciones de Springboot a ravés de la URI http://localhost:8080. Pero también se desplegó esta aplicación en la nube a través de la URI https://ec2-3-17-24-192.us-east-2.compute.amazonaws.com:8080/
 
 ### /topsecret
 
 Servicio de tipo POST que recibe la información de los trés satélites (nombre del satélite, distancia al emisor del mensaje y arreglo con el mensaje obtenido por dicho satélite), y retorna la posición (x,y) del emisor y una cadena String con el mensaje descifrado.
-
-Para ver un ejemplo de este consumo y realizar dicho consumo, se puede realizar a través de la aplicación Postman haciendo uso del request diseñado para este fin. Dicho request se puede obtener dentro del proyecto en la ruta /OperacionFuegoQuasar/src/main/resources/OperacionFuegoQuasar.postman_collection.json o se puede descargar de la siguiente dirección: https://drive.google.com/file/d/1GqUuCtqRw_N3Ma9_DzFXWnUa1eqYRxr_/view?usp=sharing
 
 ### /topsecret_split/{satelliteName}
 
@@ -81,16 +79,13 @@ Parámetro de tipo Path:
 
 * satelliteName: Contiene el nombre del satélite a registrar.
 
-Este request también se puede obtener dentro del proyecto en la ruta /OperacionFuegoQuasar/src/main/resources/OperacionFuegoQuasar.postman_collection.json o se puede descargar de la siguiente dirección: https://drive.google.com/file/d/1GqUuCtqRw_N3Ma9_DzFXWnUa1eqYRxr_/view?usp=sharing
-
 ### /topsecret_split
 
 Servicio de tipo GET que calcula la posición del emisor del mensaje y descifra el mensaje secreto, siempre y cuando ya se hayan registrado correctamente los datos de cada satélite. Si aún falta información por registrar, el aplicativo retorna un mensaje de error indicando lo sucedido.
 
 Este servicio no contiene parámetros de entrada y retorna la posición (x,y) y el mensaje descifrado siempre y cuando se haya podido hacer con la información que se tiene registrada.
 
-Se puede obtener este request de ejemplo en la ruta /OperacionFuegoQuasar/src/main/resources/OperacionFuegoQuasar.postman_collection.json o se puede descargar de la siguiente dirección: https://drive.google.com/file/d/1GqUuCtqRw_N3Ma9_DzFXWnUa1eqYRxr_/view?usp=sharing
-
+Para ver un ejemplo y realizar un consumo a estos servicios, se puede realizar a través de la aplicación Postman haciendo uso del request diseñado para este fin. Se puede utilizar el proyecto de Postman guardado en https://drive.google.com/file/d/1GqUuCtqRw_N3Ma9_DzFXWnUa1eqYRxr_/view?usp=sharing
 
 Los tres servicios mencionados anteriormente cuentan con sus respectivas validaciones de negocio para evitar inconsistencias en la información al momento de procesar los datos, y fueron construidos con buenas prácticas de diseño y codificación para garantizar que la solución sea extensible a futuro y fácil de modificar si se llegara a requerir.
 
@@ -107,6 +102,8 @@ Para ejecutar la aplicación a través del IDE de desarrollo se debe considerar 
 * Spring Tool Suite 4 - Se puede instalar desde https://spring.io/tools
 * JDK 8 - https://www.oracle.com/co/java/technologies/javase/javase-jdk8-downloads.html
 
+Garantizar que exista la siguiente carpeta creada en el sistema: /home/ubuntu/quasar/app/ Si no existe se debe crear. Almacenar allí el archivo dataSatelites.json, el cual contiene la información inicial de cada satélite. Dicho archivo puede descargarse de https://drive.google.com/file/d/1GHEMQv7c0XXjkNz0x3YhhOlNn-wM4GdG/view?usp=sharing
+
 Una vez instalado todo lo mencionado, se debe descargar el código fuente del proyecto ubicado en https://github.com/jonathanm1007/OperacionFuegoQuasar.
 Importarlo a través del IDE de desarrollo, seleccionar click derecho sobre el mismo y seleccionar Run As -> Spring Boot App. El aplicativo se encargará de descargar las dependencias necesarias para la ejecución y comenzará a escuchar peticiones a través de la URI http://localhost:8080
 
@@ -119,12 +116,20 @@ Verificar que se cuente con el siguiente software instalado en la máquina:
 * Java Runtime 8 - https://www.java.com/es/download/ie_manual.jsp
 * Maven - Se puede instalar basándose en la siguiente guía: https://maven.apache.org/guides/getting-started/windows-prerequisites.html
 
+Garantizar que exista la carpeta: /home/ubuntu/quasar/app/ Si no existe se debe crear. Almacenar allí el archivo dataSatelites.json, el cual contiene la información inicial de cada satélite. Dicho archivo puede descargarse de https://drive.google.com/file/d/1GHEMQv7c0XXjkNz0x3YhhOlNn-wM4GdG/view?usp=sharing
+
 Se debe construir el proyecto a través de una terminal del sistema con el comando mvn install ubicándonos en la carpeta raíz del proyecto.
 Ubicar el archivo ejecutable de la aplicación, el cual estará en la ruta \OperacionFuegoQuasar\target\OperacionFuegoQuasar-0.0.1-SNAPSHOT.jar, para posteriormente ejecutar el comando java -jar OperacionFuegoQuasar-0.0.1-SNAPSHOT.jar
 
 #### Consumo de los servicios publicados en Cloud
 
 El software realizado también fue publicado en la nube para que pueda ser consumido en una instancia EC2 montada en AWS que se encuentra en ejecución. Para ello, se puede hacer a través de la siguiente URI:
+
+https://ec2-3-17-24-192.us-east-2.compute.amazonaws.com:8080
+
+Se adjunta un proyecto de Postman que ya cuenta con los request necesarios para poder realizar los consumos correspondientes; dicho request puede ser descargado en la siguiente ruta:  https://drive.google.com/file/d/1GqUuCtqRw_N3Ma9_DzFXWnUa1eqYRxr_/view?usp=sharing
+
+
 
 
 
