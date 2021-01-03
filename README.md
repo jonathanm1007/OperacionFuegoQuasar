@@ -124,4 +124,7 @@ Ubicar el archivo ejecutable de la aplicación, el cual estará en la ruta \Oper
 
 #### Consumo de los servicios publicados en Cloud
 
-EL software realizado también fue publicado en la nube para proceder 
+El software realizado también fue publicado en la nube para que pueda ser consumido en una instancia EC2 montada en AWS que se encuentra en ejecución. Para ello, se puede hacer a través de la siguiente URI:
+
+
+
