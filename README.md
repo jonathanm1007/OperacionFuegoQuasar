@@ -94,4 +94,34 @@ Se puede obtener este request de ejemplo en la ruta /OperacionFuegoQuasar/src/ma
 
 Los tres servicios mencionados anteriormente cuentan con sus respectivas validaciones de negocio para evitar inconsistencias en la información al momento de procesar los datos, y fueron construidos con buenas prácticas de diseño y codificación para garantizar que la solución sea extensible a futuro y fácil de modificar si se llegara a requerir.
 
+## Ejecución de la Aplicación
 
+### Ejecución en Entorno Local
+
+Para ejecutar la aplicación en entorno local se puede realizar cargando el proyecto a través del IDE de desarrollo o instalando Maven en el equipo, para posteriormente instalar la aplicación y ejecutarla.
+
+#### Ejecución a través del IDE:
+
+Para ejecutar la aplicación a través del IDE de desarrollo se debe considerar tener el siguiente software instalado en el equipo:
+
+* Spring Tool Suite 4 - Se puede instalar desde https://spring.io/tools
+* JDK 8 - https://www.oracle.com/co/java/technologies/javase/javase-jdk8-downloads.html
+
+Una vez instalado todo lo mencionado, se debe descargar el código fuente del proyecto ubicado en https://github.com/jonathanm1007/OperacionFuegoQuasar.
+Importarlo a través del IDE de desarrollo, seleccionar click derecho sobre el mismo y seleccionar Run As -> Spring Boot App. El aplicativo se encargará de descargar las dependencias necesarias para la ejecución y comenzará a escuchar peticiones a través de la URI http://localhost:8080
+
+#### Ejecución a través de Maven
+
+Se debe descargar el código fuente de la ruta https://github.com/jonathanm1007/OperacionFuegoQuasar
+
+Verificar que se cuente con el siguiente software instalado en la máquina:
+
+* Java Runtime 8 - https://www.java.com/es/download/ie_manual.jsp
+* Maven - Se puede instalar basándose en la siguiente guía: https://maven.apache.org/guides/getting-started/windows-prerequisites.html
+
+Se debe construir el proyecto a través de una terminal del sistema con el comando mvn install ubicándonos en la carpeta raíz del proyecto.
+Ubicar el archivo ejecutable de la aplicación, el cual estará en la ruta \OperacionFuegoQuasar\target\OperacionFuegoQuasar-0.0.1-SNAPSHOT.jar, para posteriormente ejecutar el comando java -jar OperacionFuegoQuasar-0.0.1-SNAPSHOT.jar
+
+#### Consumo de los servicios publicados en Cloud
+
+EL software realizado también fue publicado en la nube para proceder 
