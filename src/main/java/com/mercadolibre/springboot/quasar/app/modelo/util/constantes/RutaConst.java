@@ -13,7 +13,7 @@ package com.mercadolibre.springboot.quasar.app.modelo.util.constantes;
  */
 public final class RutaConst {
 
-	public static final String ARCHIVO_JSON_SATELITES = "./src/main/resources/dataSatelites.json";
+	public static final String ARCHIVO_JSON_SATELITES = "/home/ubuntu/quasar/app/dataSatelites.json";
 	public static final String RUTA_TOP_SECRET = "/topsecret";
 	public static final String RUTA_TOP_SECRET_SPLIT = "/topsecret_split";
 	public static final String RUTA_TOP_SECRET_POR_ID = "/topsecret_split/{satelliteName}";

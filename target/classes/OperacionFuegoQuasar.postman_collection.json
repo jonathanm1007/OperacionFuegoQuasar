@@ -19,13 +19,16 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \"satellites\": [\r\n{ \"name\": \"Kenobi\",\r\n\"distance\": 5,\r\n\"message\": [\"este\", \"\", \"\", \"mensaje\", \"\"]\r\n},\r\n{ \"name\": \"Skywalker\",\r\n\"distance\": 5,\r\n\"message\": [\"\", \"es\", \"\", \"\", \"secreto\"]\r\n},\r\n{ \"name\": \"Sato\",\r\n\"distance\": 13,\r\n\"message\": [\"este\", \"\", \"un\", \"\", \"\"]\r\n}\r\n]\r\n}"
+					"raw": "{ \"satellites\": [\r\n{ \"name\": \"Kenobi\",\r\n\"distance\": 600,\r\n\"message\": [\"este\", \"\", \"\", \"mensaje\", \"\"]\r\n},\r\n{ \"name\": \"Skywalker\",\r\n\"distance\": 100,\r\n\"message\": [\"\", \"es\", \"\", \"\", \"secreto\"]\r\n},\r\n{ \"name\": \"Sato\",\r\n\"distance\": 500,\r\n\"message\": [\"este\", \"\", \"un\", \"\", \"\"]\r\n}\r\n]\r\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/topsecret/",
-					"protocol": "http",
+					"raw": "ec2-3-17-24-192.us-east-2.compute.amazonaws.com:8080/topsecret/",
 					"host": [
-						"localhost"
+						"ec2-3-17-24-192",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
 					],
 					"port": "8080",
 					"path": [
@@ -56,10 +59,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8080/topsecret_split/",
-					"protocol": "http",
+					"raw": "ec2-3-17-24-192.us-east-2.compute.amazonaws.com:8080/topsecret_split/",
 					"host": [
-						"localhost"
+						"ec2-3-17-24-192",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
 					],
 					"port": "8080",
 					"path": [
