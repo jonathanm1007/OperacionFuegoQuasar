@@ -3,22 +3,22 @@
       {
          "nombre":"Kenobi",
          "posicion":{
-            "x":5,
-            "y":4
+            "x":-500,
+            "y":-200
          }
       },
       {
          "nombre":"Skywalker",
          "posicion":{
-            "x":4,
-            "y":-3
+            "x":100,
+            "y":-100
          }
       },
       {
          "nombre":"Sato",
          "posicion":{
-            "x":-4,
-            "y":13
+            "x":500,
+            "y":100
          }
       }
    ]
