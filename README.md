@@ -125,7 +125,7 @@ Ubicar el archivo ejecutable de la aplicación, el cual estará en la ruta \Oper
 
 El software realizado también fue publicado en la nube para que pueda ser consumido en una instancia EC2 montada en AWS que se encuentra en ejecución. Para ello, se puede hacer a través de la siguiente URI:
 
-https://ec2-3-17-24-192.us-east-2.compute.amazonaws.com:8080
+https://ec2-18-219-180-244.us-east-2.compute.amazonaws.com:8080
 
 Se adjunta un proyecto de Postman que ya cuenta con los request necesarios para poder realizar los consumos correspondientes; dicho request puede ser descargado en la siguiente ruta:  https://drive.google.com/file/d/1GqUuCtqRw_N3Ma9_DzFXWnUa1eqYRxr_/view?usp=sharing
 
